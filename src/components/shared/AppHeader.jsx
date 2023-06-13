@@ -47,11 +47,19 @@ const AppHeader = () => {
         <div className="flex justify-between items-center px-4 sm:px-0">
           <div>
             <Link to="/">
-              {activeTheme === "dark" ? (
+              {/* {activeTheme === "dark" ? (
                 <img src={logoDark} className="w-36" alt="Dark Logo" />
               ) : (
                 <img src={logoLight} className="w-36" alt="Dark Logo" />
-              )}
+              )} */}
+              {/* {activeTheme === "dark" ? (
+                <img src={logoDark} className="w-36" alt="Dark Logo" />
+              ) : (
+                <img src={logoLight} className="w-36" alt="Dark Logo" />
+              )} */}
+              <span className="text-primary-dark  text-lg dark:text-ternary-light">
+                Patrick
+              </span>
             </Link>
           </div>
 

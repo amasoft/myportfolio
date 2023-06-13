@@ -5,7 +5,12 @@ import { ToastContainer, toast } from "react-toastify";
 import { useRef, useState } from "react";
 import Axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
-const selectOptions = ["Web Application", "Mobile Application"];
+const selectOptions = [
+  "Web Application",
+  "Mobile Application",
+  "UI/UX Design",
+  "Branding",
+];
 
 const HireMeModal = ({ onClose, onRequest }) => {
   const [showToast, setShowToast] = useState(false);
@@ -36,7 +41,6 @@ const HireMeModal = ({ onClose, onRequest }) => {
         setShowToast(false);
         toast.success(response.data.message);
         clearData();
-        onClose();
       })
       .catch((error) => {
         console.log("error", error);
