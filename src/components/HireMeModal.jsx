@@ -28,9 +28,12 @@ const HireMeModal = ({ onClose, onRequest }) => {
       project: project.current.value,
       messages: messages.current.value,
     };
-    Axios.post("http://localhost:5000/api/v1/portfolio/contactme", {
-      data: data,
-    })
+    Axios.post(
+      "https://portfoliobackend-9wlr.onrender.com/api/v1/portfolio/contactme",
+      {
+        data: data,
+      }
+    )
       .then((response) => {
         console.log("success", response);
         setShowToast(false);
