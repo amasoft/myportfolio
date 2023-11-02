@@ -15,7 +15,7 @@ const ContactForm = () => {
   const message = useRef("");
 
   const contactMehandle = () => {
-    toast.success("hireme clicking");
+    // toast.success("hireme clicking");
     var data = {
       fullName: name.current.value,
       email: email.current.value,
@@ -24,8 +24,8 @@ const ContactForm = () => {
     };
     console.log("details", JSON.stringify(data));
     Axios.post(
-      // "https://portfoliobackend-9wlr.onrender.com/api/v1/portfolio/contactme",
-      "http://localhost:5000/api/v1/portfolio/contactme",
+      "https://portfoliobackend-9wlr.onrender.com/api/v1/portfolio/contactme",
+      // "http://localhost:5000/api/v1/portfolio/contactme",
       {
         fullName: name.current.value,
         email: email.current.value,

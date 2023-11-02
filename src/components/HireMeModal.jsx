@@ -31,8 +31,8 @@ const HireMeModal = ({ onClose, onRequest }) => {
     };
     console.log("details", JSON.stringify(data));
     Axios.post(
-      // "https://portfoliobackend-9wlr.onrender.com/api/v1/portfolio/contactme",
-      "http://localhost:5000/api/v1/portfolio/hireme",
+      "https://portfoliobackend-9wlr.onrender.com/api/v1/portfolio/contactme",
+      // "http://localhost:5000/api/v1/portfolio/hireme",
       {
         name: name.current.value,
         email: email.current.value,
