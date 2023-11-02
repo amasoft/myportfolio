@@ -11,31 +11,39 @@ const HireMeModal = ({ onClose, onRequest }) => {
   const [showToast, setShowToast] = useState(true);
   const name = useRef("");
   const email = useRef("");
+  const description = useRef("");
   const project = useRef("");
-  const messages = useRef("");
 
   const clearData = () => {
     name.current.value = "";
     email.current.value = "";
+    description.current.value = "";
     project.current.value = "";
-    messages.current.value = "";
   };
 
   const hireMehandle = () => {
+    toast.success("hireme clicking");
+    var data = {
+      name: name.current.value,
+      email: email.current.value,
+      description: description.current.value,
+      project: project.current.value,
+    };
+    console.log("details", JSON.stringify(data));
     Axios.post(
-      "https://portfoliobackend-9wlr.onrender.com/api/v1/portfolio/contactme",
-      // "http://localhost:5000/api/v1/portfolio/contactme",
+      // "https://portfoliobackend-9wlr.onrender.com/api/v1/portfolio/contactme",
+      "http://localhost:5000/api/v1/portfolio/hireme",
       {
         name: name.current.value,
         email: email.current.value,
+        description: description.current.value,
         project: project.current.value,
-        messages: messages.current.value,
       }
     )
       .then((response) => {
         console.log("success", response);
         toast.success("message sent succesfully");
-        clearData();
+        // clearData();
         // onClose();
       })
       .catch((error) => {
@@ -63,7 +71,7 @@ const HireMeModal = ({ onClose, onRequest }) => {
             <div className="modal max-w-md mx-5 xl:max-w-xl lg:max-w-xl md:max-w-xl bg-secondary-light dark:bg-primary-dark max-h-screen shadow-lg flex-row rounded-lg relative">
               <div className="modal-header flex justify-between gap-10 p-5 border-b border-ternary-light dark:border-ternary-dark">
                 <h5 className=" text-primary-dark dark:text-primary-light text-xl">
-                  What project are you looking for?
+                  What description are you looking for?
                 </h5>
                 <button
                   onClick={onClose}
@@ -106,16 +114,16 @@ const HireMeModal = ({ onClose, onRequest }) => {
 
                   <div className="mt-6">
                     <span className=" text-primary-dark dark:text-primary-light text-sm">
-                      Type of project
+                      Type of description
                     </span>
                     <select
                       className="w-full px-5 py-2 border dark:border-secondary-dark rounded-md text-md bg-secondary-light dark:bg-ternary-dark text-primary-dark dark:text-ternary-light"
                       id="subject"
                       name="subject"
                       type="text"
-                      ref={project}
+                      ref={description}
                       required=""
-                      aria-label="Project Category"
+                      aria-label="description Category"
                     >
                       {selectOptions.map((option) => (
                         <option className="text-normal sm:text-md" key={option}>
@@ -130,11 +138,11 @@ const HireMeModal = ({ onClose, onRequest }) => {
                       className="w-full px-5 py-2 border dark:border-secondary-dark rounded-md text-md bg-secondary-light dark:bg-ternary-dark text-primary-dark dark:text-ternary-light"
                       id="message"
                       name="message"
-                      ref={messages}
+                      ref={project}
                       cols="14"
                       rows="6"
                       aria-label="Details"
-                      placeholder="Project description"
+                      placeholder="description description"
                     ></textarea>
                   </div>
 
